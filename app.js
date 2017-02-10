@@ -32,6 +32,12 @@
                 controllerAs: 'vm'
             })
 
+            .when('/skills', {
+                controller: 'SkillsController',
+                templateUrl: 'phase1/skills.view.html',
+                controllerAs: 'vm'
+            })
+
             .otherwise({ redirectTo: '/login' });
 
             $crypthmacProvider.setCryptoSecret('sdfosdfsdoifsjdfnos');
