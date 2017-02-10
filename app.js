@@ -26,6 +26,11 @@
                 templateUrl: 'register/register.view.html',
                 controllerAs: 'vm'
             })
+            .when('/joboffering', {
+                controller: 'JobofferingController',
+                templateUrl: 'joboffering/joboffering.view.html',
+                controllerAs: 'vm'
+            })
 
             .otherwise({ redirectTo: '/login' });
     }
