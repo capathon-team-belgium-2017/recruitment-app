@@ -5,8 +5,8 @@
         .module('app')
         .factory('AuthenticationService', AuthenticationService);
 
-    AuthenticationService.$inject = ['$http', '$cookies', '$rootScope', '$timeout', 'UserService'];
-    function AuthenticationService($http, $cookies, $rootScope, $timeout, UserService) {
+    AuthenticationService.$inject = ['$http', '$cookies', '$rootScope', '$timeout', 'UserService','$crypthmac'];
+    function AuthenticationService($http, $cookies, $rootScope, $timeout, UserService,$crypthmac) {
         var service = {};
 
         service.Login = Login;
@@ -23,7 +23,7 @@
                 var response;
                 UserService.GetByUsername(username)
                     .then(function (user) {
-                        if (user !== null && user.password === password) {
+                        if (user !== null && user.password === $crypthmac.encrypt(password,"")) {
                             response = { success: true };
                         } else {
                             response = { success: false, message: 'Username or password is incorrect' };

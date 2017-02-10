@@ -3,10 +3,10 @@
 
     angular
         .module('app')
-        .factory('UserService', UserService);
+        .factory('UserService',UserService);
 
-    UserService.$inject = ['$http'];
-    function UserService($http) {
+    UserService.$inject = ['$http','$crypthmac'];
+    function UserService($http,$crypthmac) {
         var service = {};
 
         service.GetAll = GetAll;
@@ -31,8 +31,9 @@
         }
 
         function Create(user) {
-            console.log(JSON.stringify(user))
-            return $http.post(SERVICE_ENDPOINT + '/recruiters', JSON.stringify(user)).then(handleSuccess, handleError('Error creating user'));
+            var tempuser =  Object.assign({}, user);
+            tempuser.password = $crypthmac.encrypt(tempuser.password,"");
+            return $http.post(SERVICE_ENDPOINT + '/recruiters', JSON.stringify(tempuser)).then(handleSuccess, handleError('Error creating user'));
         }
 
         // private functions

@@ -2,12 +2,12 @@
     'use strict';
 
     angular
-        .module('app', ['ngRoute', 'ngCookies'])
+        .module('app', ['ngRoute', 'ngCookies','angular-hmac-sha512'])
         .config(config)
         .run(run);
 
-    config.$inject = ['$routeProvider', '$locationProvider'];
-    function config($routeProvider, $locationProvider) {
+    config.$inject = ['$routeProvider', '$locationProvider','$crypthmacProvider'];
+    function config($routeProvider, $locationProvider, $crypthmacProvider) {
         $routeProvider
             .when('/', {
                 controller: 'HomeController',
@@ -33,7 +33,10 @@
             })
 
             .otherwise({ redirectTo: '/login' });
+
+            $crypthmacProvider.setCryptoSecret('sdfosdfsdoifsjdfnos');
     }
+
 
     run.$inject = ['$rootScope', '$location', '$cookies', '$http'];
     function run($rootScope, $location, $cookies, $http) {
