@@ -11,7 +11,7 @@
 
         service.GetUsers = GetUsers;
 
-        var SERVICE_ENDPOINT = "http://192.168.101.223:3000";
+        var SERVICE_ENDPOINT = "http://192.168.1.2:3000";
 
         return service;
 

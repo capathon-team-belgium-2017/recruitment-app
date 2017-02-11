@@ -16,7 +16,7 @@
 
         function getUsers() {
             vm.dataLoading = true;
-            var SERVICE_ENDPOINT = "http://192.168.101.223:3000";
+            var SERVICE_ENDPOINT = "http://192.168.1.2:3000";
 
             var url = SERVICE_ENDPOINT + "/users";
 

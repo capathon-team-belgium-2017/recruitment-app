@@ -2,15 +2,36 @@
     <h3>Current Phase: {{vm.currentPhase}}</h3>
     <div ng-if="vm.currentPhase == 1">
         <div ng-repeat="user in vm.users track by $index" class="tile" ng-show="vm.currentIndex == $index">
-            User {{($index + 1)}} of the {{vm.totalUsers}}
-            ----
-            <div ng-repeat="(skill, value) in user.skills" class="tile">
-                Skill: {{skill}}, Score: {{value}}
+            <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" style="display: inline;"><span style=" padding-right: 5px; padding-left: 5px;">Applicant</span>{{($index + 1)}}</h4>
+                  <h4 class="modal-title" style="text-align: right; display: inline; float: right;">{{($index + 1)}}/{{vm.totalUsers}} <span style="color: #bbbbbb; padding-left: 5px;">applicants</span></h4>
+                </div>
+                <div class="modal-body">
+                  <div class="box-body">
+                <table class="table table-bordered">
+                  <tbody><tr>
+                    <th>Skill</th>
+                    <th>Level</th>
+                    <th style="width: 40px">Label</th>
+                  </tr>
+                  <tr ng-repeat="(skill, value) in user.skills">
+                    <td>{{skill}}</td>
+                    <td>
+                      <div class="progress progress-xs">
+                        <div class="progress-bar progress-bar-danger" style="width: {{skill/5 * 100}}%"></div>
+                      </div>
+                    </td>
+                    <td><span class="badge bg-red">{{value}}/5</span></td>
+                  </tr>
+                  </tbody></table>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">DECLINE</button>
+                <button type="button" class="btn btn-primary">ACCEPT</button>
+              </div>
             </div>
-            ----
-            <button ng-click="vm.decline()">Decline</button>
-            <button ng-click="vm.accept()">Accept</button>
-        </div>
     </div>
     <div ng-if="vm.currentPhase == 2">
         <div ng-repeat="user in vm.users track by $index" class="tile" ng-show="vm.currentIndex == $index">
