@@ -92,7 +92,29 @@
         </div>
     </div>
     <div ng-if="vm.currentPhase == 4">
-        <div ng-repeat="user in vm.users track by $index" class="tile" ng-show="vm.currentIndex == $index">
-        </div>
+
+            <section class="content">
+                <!-- Small boxes (Stat box) -->
+
+                <div class="modal-content">
+                    <div class="modal-body" style="padding: 0">
+                        <div class="box-body" style="padding: 0">
+                            <div ng-repeat="user in vm.users track by $index" class="tile">
+                            <div class="box-footer">
+                                <div class="pull-left image">
+                                    <img ng-src="{{vm.SERVICE_ENDPOINT + user.img}}" class="img-circle" alt="User Image" style="width: 45px;">
+                                </div>
+                                <span style="padding-left: 10px; font-size: 18px; position: relative; top: 8px;">{{user.name}}</span>
+                                <button type="button" class="btn btn-default pull-left" data-dismiss="modal" style="float: right !important;position: relative;top: 5px; border: none;background-color: #ffffff;color: #cccccc;">Send invite</button>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#!/joboffering"><button  type="button" class="btn btn-primary">Back to dashboard</button></a>
+                    </div>
+                </div>
+
+
     </div>
 </div>
