@@ -89,6 +89,7 @@
         </div>
     </div>
     <div ng-if="vm.currentPhase == 4">
-
+        <div ng-repeat="user in vm.users track by $index" class="tile" ng-show="vm.currentIndex == $index">
+        </div>
     </div>
 </div>
