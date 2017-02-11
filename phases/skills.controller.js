@@ -11,6 +11,7 @@
 
         getUsers();
 
+        vm.currentPhase = 1;
         vm.currentIndex = 0;
 
         function getUsers() {
@@ -27,10 +28,21 @@
 
         vm.accept = function() {
             vm.currentIndex++;
+            if((vm.currentIndex+1) == vm.totalUsers) {
+                goToNextPhase();
+            }
         };
 
         vm.decline = function() {
             vm.currentIndex++;
+            if((vm.currentIndex+1) == vm.totalUsers) {
+                goToNextPhase();
+            }
+        };
+
+        function goToNextPhase() {
+            vm.currentIndex = 0;
+            vm.currentPhase++;
         }
 
     }
