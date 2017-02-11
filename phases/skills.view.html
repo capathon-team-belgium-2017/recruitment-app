@@ -36,14 +36,34 @@
     </div>
     <div ng-if="vm.currentPhase == 2">
         <div ng-repeat="user in vm.users track by $index" class="tile" ng-show="vm.currentIndex == $index">
-            Name: {{user.name}}<br />
-            Age: {{user.age}}<br />
-            Location: {{user.location}}<br />
-            Highscore: {{user.highscore}}<br />
-            Career Experience: {{user.carreerExpierence}}<br />
-            Extra Career Activities: {{user.extraCarreerActivities}}<br />
-            <button ng-click="vm.decline()">Decline</button>
-            <button ng-click="vm.accept()">Accept</button>
+          <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title" style="display: inline;"><span style=" padding-right: 5px; padding-left: 5px;">{{user.name}}</span><span style="color: #999999">({{user.age}})</span> {{user.location}}</h4>
+                <h4 class="modal-title" style="text-align: right; display: inline; float: right;">1/6 <span style="color: #bbbbbb; padding-left: 5px;">applicants</span></h4>
+              </div>
+              <div class="modal-body" style="padding: 0">
+                <div class="box-body" style="padding: 0">
+                  <div class="box-footer" style="border: none;">
+                    <span style="padding-left: 10px; font-size: 18px;">Career experience</span>
+                    <span style="display: block; padding-left: 10px; padding-top: 5px;">{{user.carreerExpierence}}</span>
+                  </div>
+                  <div class="box-footer">
+                    <span style="padding-left: 10px; font-size: 18px;">Certificates</span>
+                    <ul>
+                        <li ng-repeat="certificate in user.certifications track by $index">{{certificate}}<span>
+                    </ul>
+                  </div>
+                  <div class="box-footer">
+                    <span style="padding-left: 10px; font-size: 18px;">Extra career activities</span>
+                    <span style="display: block; padding-left: 10px; padding-top: 5px;">{{user.extraCarreerActivities}}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal" ng-click="vm.decline()">DECLINE</button>
+                <button type="button" class="btn btn-primary" ng-click="vm.accept()">ACCEPT</button>
+              </div>
+            </div>
         </div>
     </div>
     <div ng-if="vm.currentPhase == 3">
