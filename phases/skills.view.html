@@ -38,8 +38,8 @@
         <div ng-repeat="user in vm.users track by $index" class="tile" ng-show="vm.currentIndex == $index">
           <div class="modal-content">
               <div class="modal-header">
-                <h4 class="modal-title" style="display: inline;"><span style=" padding-right: 5px; padding-left: 5px;">{{user.name}}</span><span style="color: #999999">({{user.age}})</span> {{user.location}}</h4>
-                <h4 class="modal-title" style="text-align: right; display: inline; float: right;">{{($index + 1)}}/{{vm.totalUsers}} <span style="color: #bbbbbb; padding-left: 5px;">applicants</span></h4>
+                  <h4 class="modal-title" style="display: inline;"><span style=" padding-right: 5px; padding-left: 5px;">Applicant</span>{{($index + 1)}}</h4>
+                  <h4 class="modal-title" style="text-align: right; display: inline; float: right;">{{($index + 1)}}/{{vm.totalUsers}} <span style="color: #bbbbbb; padding-left: 5px;">applicants</span></h4>
               </div>
               <div class="modal-body" style="padding: 0">
                 <div class="box-body" style="padding: 0">
