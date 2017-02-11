@@ -9,6 +9,7 @@
     function SkillsController($location, SkillsService, $http) {
         var vm = this;
 
+        vm.showPhase= true;
         getUsers();
         vm.currentPhase = 1;
         vm.currentIndex = 0;
@@ -68,6 +69,10 @@
 
             vm.currentIndex = 0;
             vm.currentPhase++;
+
+            if (vm.currentPhase == 4){
+                vm.showPhase= false;
+            }
         }
 
     }

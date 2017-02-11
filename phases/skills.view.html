@@ -1,5 +1,5 @@
 <div class="allJobOffers">
-    <h3>Current Phase: {{vm.currentPhase}}</h3>
+    <h3 ng-show="vm.showPhase">Current Phase: {{vm.currentPhase}}</h3>
     <div ng-if="vm.currentPhase == 1">
         <div ng-repeat="user in vm.users track by $index" class="tile" ng-show="vm.currentIndex == $index">
             <div class="modal-content">
@@ -92,7 +92,7 @@
         </div>
     </div>
     <div ng-if="vm.currentPhase == 4">
-
+        <h3>Overview</h3>
             <section class="content">
                 <!-- Small boxes (Stat box) -->
 
