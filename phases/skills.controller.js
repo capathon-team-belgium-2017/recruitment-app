@@ -39,6 +39,25 @@
                 goToNextPhase();
             }
         };
+        vm.getScorePercentage = function(score){
+            var percentage = Number(score)/5 * 100;
+            return percentage;
+        };
+
+        vm.getScoreColor = function(value){
+            switch(value) {
+                case 1:
+                    return "red";
+                case 2:
+                    return "yellow";
+                case 3:
+                    return "yellow";
+                case 4:
+                    return "green";
+                default:
+                    return "green";
+            }
+        };
 
         function goToNextPhase() {
             vm.currentIndex = 0;

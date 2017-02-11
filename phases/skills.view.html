@@ -19,19 +19,20 @@
                     <td>{{skill}}</td>
                     <td>
                       <div class="progress progress-xs">
-                        <div class="progress-bar progress-bar-danger" style="width: {{skill/5 * 100}}%"></div>
+                        <div class="progress-bar progress-bar-{{vm.getScoreColor(value)}}" style="width: {{vm.getScorePercentage(value)}}%"></div>
                       </div>
                     </td>
-                    <td><span class="badge bg-red">{{value}}/5</span></td>
+                    <td><span class="badge bg-{{vm.getScoreColor(value)}}">{{value}}/5</span></td>
                   </tr>
                   </tbody></table>
                 </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">DECLINE</button>
-                <button type="button" class="btn btn-primary">ACCEPT</button>
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal" ng-click="vm.decline()">DECLINE</button>
+                <button type="button" class="btn btn-primary" ng-click="vm.accept()">ACCEPT</button>
               </div>
             </div>
+        </div>
     </div>
     <div ng-if="vm.currentPhase == 2">
         <div ng-repeat="user in vm.users track by $index" class="tile" ng-show="vm.currentIndex == $index">
