@@ -20,9 +20,9 @@
 
         function getJobOffers() {
             vm.dataLoading = true;
-            var SERVICE_ENDPOINT = "http://192.168.101.223:3000";
+            vm.SERVICE_ENDPOINT = "http://192.168.101.223:3000";
 
-            var url = SERVICE_ENDPOINT + "/joboffers";
+            var url = vm.SERVICE_ENDPOINT + "/joboffers";
 
             $http.get(url).then(function (response) {
                 vm.joboffers = response.data;
