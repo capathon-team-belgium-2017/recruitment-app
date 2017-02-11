@@ -34,7 +34,7 @@
 
             .when('/skills', {
                 controller: 'SkillsController',
-                templateUrl: 'phase1/skills.view.html',
+                templateUrl: 'phases/skills.view.html',
                 controllerAs: 'vm'
             })
 
