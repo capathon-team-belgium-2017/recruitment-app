@@ -1,7 +1,12 @@
 <div class="allJobOffers">
-    <div ng-repeat="joboffer in vm.joboffers" class="tile">
-        <span class="project">Project: {{joboffer.project}}</span>
-        <span class="company">Company: {{joboffer.company}}</span>
-        <span class="company">Current phase: {{joboffer.phase}}</span>
+    <div ng-repeat="user in vm.users track by $index" class="tile" ng-show="vm.currentIndex == $index">
+        User {{($index + 1)}} of the {{vm.totalUsers}}
+        ----
+        <div ng-repeat="(skill, value) in user.skills" class="tile">
+            Skill: {{skill}}, Score: {{value}}
+        </div>
+        ----
+        <button ng-click="vm.decline()">Decline</button>
+        <button ng-click="vm.accept()">Accept</button>
     </div>
 </div>
