@@ -1,3 +1,13 @@
 ﻿a {
     cursor: pointer;
 }
+
+.jobofferWrapper:hover {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform:translateZ(0) scale(1.08); /* Safari and Chrome */
+    -moz-transform:scale(1.08); /* Firefox */
+    -ms-transform:scale(1.08); /* IE 9 */
+    -o-transform:translatZ(0) scale(1.08); /* Opera */
+    transform:translatZ(0) scale(1.08);
+}

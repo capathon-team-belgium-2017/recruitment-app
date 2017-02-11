@@ -1,6 +1,6 @@
-<div class="col-md-4" ng-repeat="joboffer in vm.joboffers">
+<div class="col-md-4 jobofferWrapper" ng-repeat="joboffer in vm.joboffers" ng-click="vm.goToSkills()" >
   <div class="box box-widget widget-user">
-    <div class="widget-user-header bg-aqua-active" style="background-color: #387d69 !important">
+    <div class="widget-user-header bg-aqua-active" style="background-color: {{joboffer.color}} !important">
       <h3 class="widget-user-username">{{joboffer.project}}</h3>
       <h5 class="widget-user-desc">{{joboffer.company}}</h5>
     </div>

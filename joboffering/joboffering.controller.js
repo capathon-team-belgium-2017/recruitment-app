@@ -5,8 +5,8 @@
         .module('app')
         .controller('JobofferingController', JobofferingController);
 
-    JobofferingController.$inject = ['$rootScope', '$http'];
-    function JobofferingController($rootScope,$http) {
+    JobofferingController.$inject = ['$rootScope', '$http','$location'];
+    function JobofferingController($rootScope,$http,$location) {
         var vm = this;
 
         vm.test = "leuk";
@@ -27,6 +27,10 @@
             $http.get(url).then(function (response) {
                 vm.joboffers = response.data;
             });
+        }
+
+        vm.goToSkills = function(){
+            $location.path('/skills');
         };
     }
 
