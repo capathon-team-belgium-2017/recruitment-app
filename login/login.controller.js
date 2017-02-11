@@ -21,13 +21,13 @@
             AuthenticationService.Login(vm.username, vm.password, function (response) {
                 if (response.success) {
                     AuthenticationService.SetCredentials(vm.username, vm.password);
-                    $location.path('/');
+                    $location.path('/joboffering');
                 } else {
                     FlashService.Error(response.message);
                     vm.dataLoading = false;
                 }
             });
-        };
+        }
     }
 
 })();
