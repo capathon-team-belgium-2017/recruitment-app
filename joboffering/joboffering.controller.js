@@ -5,39 +5,29 @@
         .module('app')
         .controller('JobofferingController', JobofferingController);
 
-    JobofferingController.$inject = ['$rootScope'];
-    function JobofferingController($rootScope) {
+    JobofferingController.$inject = ['$rootScope', '$http'];
+    function JobofferingController($rootScope,$http) {
         var vm = this;
 
         vm.test = "leuk";
-        (function initController() {
-            // reset login status
-        })();
 
-        function firstMethod() {
+        getJobOffers();
 
+        // (function initController() {
+        //     // reset login status
+        //     SkillsService.GetUsers();
+        // })();
+
+        function getJobOffers() {
+            vm.dataLoading = true;
+            var SERVICE_ENDPOINT = "http://192.168.101.223:3000";
+
+            var url = SERVICE_ENDPOINT + "/joboffers";
+
+            $http.get(url).then(function (response) {
+                vm.joboffers = response.data;
+            });
         };
     }
-
-    angular.module("app")
-        .directive("jobofferingTile", function () {
-            var directive = {
-                restrict: "E",
-                scope: {
-                    item: "="
-                },
-                link: linkFunc,
-                template: '<h3>Hello World!!</h3>',
-                controller: "JobofferingController",
-                controllerAs: "vm",
-                bindToController: true
-            };
-
-            return directive;
-
-            function linkFunc(scope, element, attrs, ngModelCtrl) {
-
-            }
-        })
 
 })();
