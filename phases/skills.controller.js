@@ -13,7 +13,7 @@
 
         vm.currentPhase = 1;
         vm.currentIndex = 0;
-
+        vm.nextPhaseUsers = [];
         function getUsers() {
             vm.dataLoading = true;
             var SERVICE_ENDPOINT = "http://192.168.1.2:3000";
@@ -27,15 +27,16 @@
         }
 
         vm.accept = function() {
+            vm.nextPhaseUsers.push(vm.users[vm.currentIndex]);
             vm.currentIndex++;
-            if((vm.currentIndex+1) == vm.totalUsers) {
+            if((vm.currentIndex) == vm.totalUsers) {
                 goToNextPhase();
             }
         };
 
         vm.decline = function() {
             vm.currentIndex++;
-            if((vm.currentIndex+1) == vm.totalUsers) {
+            if((vm.currentIndex) == vm.totalUsers) {
                 goToNextPhase();
             }
         };
@@ -60,6 +61,12 @@
         };
 
         function goToNextPhase() {
+            vm.users =  Object.assign({}, vm.nextPhaseUsers);
+            vm.totalUsers = vm.nextPhaseUsers.length;
+            console.log(vm.totalUsers);
+            console.log(vm.users);
+            vm.nextPhaseUsers = [];
+
             vm.currentIndex = 0;
             vm.currentPhase++;
         }
