@@ -5,12 +5,11 @@
         .module('app')
         .controller('SkillsController', SkillsController);
 
-    SkillsController.$inject = ['$location', 'SkillsService', '$http'];
+    SkillsController.$inject = ['$location', 'SkillsService', '$http',  ];
     function SkillsController($location, SkillsService, $http) {
         var vm = this;
 
         getUsers();
-
         vm.currentPhase = 1;
         vm.currentIndex = 0;
         vm.nextPhaseUsers = [];
