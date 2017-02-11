@@ -10,7 +10,7 @@
         var vm = this;
 
         vm.test = "leuk";
-
+        $rootScope.hideSidebarsKpi = true;
         getJobOffers();
 
         // (function initController() {
@@ -30,6 +30,7 @@
         }
 
         vm.goToSkills = function(){
+            $rootScope.hideSidebarsKpi = false;
             $location.path('/skills');
         };
     }

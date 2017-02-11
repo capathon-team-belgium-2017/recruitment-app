@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('app', ['ngRoute', 'ngCookies','angular-hmac-sha512'])
+        .module('app', ['ngRoute', 'ngCookies','angular-hmac-sha512','ngAnimate'])
         .config(config)
         .run(run);
 

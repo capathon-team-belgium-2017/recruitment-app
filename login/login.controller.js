@@ -17,6 +17,8 @@
         })();
 
         $rootScope.hideSidebars = true;
+        $rootScope.hideSidebarsKpi = false;
+
 
         function login() {
             vm.dataLoading = true;
